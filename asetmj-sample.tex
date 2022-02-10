@@ -1,0 +1,164 @@
+\documentclass{book}
+\usepackage{asetmj}
+\usepackage[all,ps,arc]{xy}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\AAA}{\mathcal{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\BB}{\mathcal{B}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cd}{\xymatrix}
+\newcommand{\fracinline}[2]{\raisebox{0.4ex}{$#1$} / \raisebox{-0.7ex}{$#2$}}
+\newcommand{\pb}[1][dr]{\save*!/#1-1.5pc/#1:(-1,1)@^{|-}\restore}
+\newcommand{\po}[1][dr]{\save*!/#1+1.5pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{(Short) title of the paper} {Title of the paper}
+
+\author{F.~Author, S.~Author} {First Author${}^1$ and Second Author${}^2$}
+
+\address{${}^1$Address of the first author\\
+${}^2$Address of the second author}
+
+\email{fa@gmail.com${}^1$, sa@gmail.com${}^2$}
+
+\received{???} \revised{} \accepted{???}
+\volumenumber{???} \volumeyear{???}
+
+\setcounter{page}{1}
+
+\numberwithin{equation}{section}
+
+\maketitle
+
+\begin{abstract}
+The text of the abstract.
+\end{abstract}
+
+\metadata{18B40}{18C15, 18D05}{monadic category, internal groupoid, bicategory of fractions, axiom of choice}
+
+
+
+\section{Introduction}
+
+The text of the introduction. Some citations \cite{baez-crans, benabou, borceux1, bunge-pare, gabriel-zisman}. Math formulas, equations, diagrams
+\begin{equation}
+\text{Grpd}(\text{Gp}) \longhookrightarrow \text{MON},
+\end{equation}
+and so on.
+
+\section{Weak equivalences} \label{section weak equivalences}
+
+The text of the second section.
+
+We recall in this section the definition of weak equivalences in the 2-category of internal groupoids.
+Let us first fix notations. If $\C$ is a category with pullbacks, an internal groupoid $\A$ in $\C$ is represented by
+\begin{equation}
+\cd{A_1 \times_{c,d} A_1 \ar[r]^-{m} & A_1 \ar@<2pt>[r]^-{d} \ar@<-2pt>[r]_-{c} & A_0 \ar@<2pt>@/^1pc/[l]^-{e}} \qquad \cd{A_1 \ar[r]^-{i} & A_1}
+\end{equation}
+where
+\begin{equation}
+\cd{A_1 \times_{c,d} A_1 \pb \ar[r]^-{\pi_2} \ar[d]_-{\pi_1} & A_1 \ar[d]^-{d} \\ A_1 \ar[r]_-{c} & A_0}
+\end{equation}
+is a pullback.
+
+
+
+The definition of weak equivalences has been introduced in \cite{bunge-pare}.
+
+\begin{definition}
+Let $\C$ be a category with pullbacks and $F: \A \rightarrow \B$ be an internal functor between internal groupoids in $\C$ ...
+\end{definition}
+
+
+
+\begin{theorem} \label{preserving weak equivalences}
+Let $U: \D \rightarrow \C$ be a pullback preserving functor between categories with pullbacks and let $F : \A \rightarrow \B$
+be an internal functor between internal groupoids in $\D$.
+Then,
+\begin{itemize}
+\item If $U$ reflects finite limits, $F$ is full and faithful if and only if $UF$ is.
+\item If $\C$ and $\D$ are regular and if $U$ preserves and reflects regular epimorphisms, then $F$ is essentially surjective if and only if $UF$ is.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+The `only if parts' follow from the preserving hypothesis while the `if parts' follow from the reflecting hypothesis.
+\end{proof}
+
+We conclude this section by a well-known lemma.
+
+\begin{lemma}
+Let $\C$ be a category with pullbacks. An internal functor $F: \A \rightarrow \B$ between internal groupoids in $\C$ is an equivalence if and only if it is full and faithful and
+$$\cd{A_0 \times_{F_0,d} B_1 \ar[r]^-{t_2} & B_1 \ar[r]^-{c} & B_0}$$
+is a split epimorphism.
+\end{lemma}
+
+
+
+\section{$\T$-monoidal functors} \label{section T-monoidal functors}
+
+The text of the third section.
+
+
+\begin{corollary} \label{corollary for monadic categories}
+Let $\C$ be a regular category where the axiom of choice holds and $G: \D \rightarrow \C$ be a monadic functor.
+Denote by $\T=(T,\eta, \mu)$ the monad induced by the adjunction $F \dashv G$ on $\C$ and $K: \D \rightarrow \C^{\T}$ the comparison functor.
+Then, the composite
+\begin{equation}
+\cd{\text{Grpd}(\D) \ar[r]^-{K} & \text{Grpd}(\C^{\T}) \; \ar@{^{(}->}[r]^-{I} & \T \text{-MON}}
+\end{equation}
+is the bicategory of fractions of $\text{Grpd}(\D)$ with respect to weak equivalences.
+\end{corollary}
+
+\begin{proof}
+Since $G$ is monadic, $K: \D \rightarrow \C^{\T}$ is an equivalence and $K: \text{Grpd}(\D) \rightarrow \text{Grpd}(\C^{\T})$ is a
+biequivalence of 2-categories.
+In addition, by Lemma \ref{preserving weak equivalences}, $W \in \text{Grpd}(\D)$ is a weak equivalence if and only if $K(W) \in \text{Grpd}(\C^{\T})$ is.
+Thus, $IK$ satisfies conditions EF1, EF2 and EF3.
+\end{proof}
+
+
+
+\begin{thebibliography}{12}
+
+
+\bibitem{baez-crans}
+{J. C. Baez and A. S. Crans}, \textit{Higher-dimensional algebra VI: Lie 2-algebras}, {Theory and Applications of Categories}
+\textbf{12} (2004) 492--538.
+
+\bibitem{benabou}
+{J. B\'enabou}, \textit{Introduction to bicategories}, {Springer LNM} \textbf{40} (1967) 1--77.
+
+\bibitem{borceux1}
+{F. Borceux}, \textit{ Handbook of Categorical Algebra 1}, {Cambridge University Press} (1994).
+
+\bibitem{bunge-pare}
+{M. Bunge and R. Par\'e}, \textit{Stacks and equivalence of indexed categories}, {Cahiers de Topologie et G\'eom\'etrie Diff\'erentielle
+Cat\'egoriques}
+\textbf{20} (1979) 373--399.
+
+\bibitem{gabriel-zisman}
+{P. Gabriel and M. Zisman}, \textit{Calculus of fractions and homotopy theory}, {Springer} (1967).
+
+
+\end{thebibliography}
+
+\end{document}
